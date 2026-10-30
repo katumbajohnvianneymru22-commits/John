@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vianney Rabbit Farm — healthy rabbits, responsible breeding and quality rabbit care in Uganda.">
+  <title>Vianney Rabbit Farm | Healthy Rabbits, Better Future</title>
+  <style>
+    :root {
+      --forest: #173d2b;
+      --green: #287342;
+      --leaf: #4d9b5e;
+      --mint: #dff1e3;
+      --cream: #f7f8f2;
+      --white: #ffffff;
+      --ink: #24352b;
+      --muted: #66766b;
+      --line: #e1e9df;
+      --gold: #e6b85c;
+      --shadow: 0 16px 42px rgba(23,61,43,.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.7; color: var(--ink); background: var(--cream); }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1120px, 91%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(23,61,43,.97); color: white; box-shadow: 0 3px 18px rgba(0,0,0,.12); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { font-size: 1.08rem; font-weight: 900; letter-spacing: 1.2px; white-space: nowrap; }
+    .brand span { color: #a9dfad; }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 22px; }
+    .nav-links a { color: #edf6ee; font-size: .92rem; font-weight: 700; transition: color .2s; }
+    .nav-links a:hover { color: #b8edbf; }
+    .nav-cta, .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border: 0; border-radius: 8px; padding: 12px 20px; background: var(--gold); color: #263b2c; font-weight: 800; cursor: pointer; transition: .2s; }
+    .nav-cta:hover, .btn:hover { background: #f0ca7a; transform: translateY(-2px); }
+    .menu-btn { display: none; color: white; background: transparent; border: 1px solid rgba(255,255,255,.4); border-radius: 8px; padding: 7px 11px; font-size: 1.2rem; cursor: pointer; }
+    .hero { position: relative; overflow: hidden; background: linear-gradient(120deg, #e5f2e5 0%, #c8e5cd 55%, #a9d2b1 100%); padding: 94px 0 88px; }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 420px; height: 420px; right: -120px; top: -170px; border: 65px solid rgba(40,115,66,.09); }
+    .hero::after { width: 250px; height: 250px; right: 14%; bottom: -185px; background: rgba(255,255,255,.25); }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .eyebrow { display: inline-block; color: var(--green); background: rgba(255,255,255,.7); padding: 7px 14px; border-radius: 30px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; font-size: .78rem; }
+    h1 { color: var(--forest); font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.07; letter-spacing: -2px; margin: 22px 0 18px; }
+    h1 span { color: var(--green); }
+    .hero p { max-width: 640px; color: #435c49; font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 28px; }
+    .btn.green { background: var(--forest); color: white; }
+    .btn.green:hover { background: var(--green); }
+    .btn.light { background: white; color: var(--forest); border: 1px solid #d5e5d7; }
+    .btn.light:hover { background: #f2faf3; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 30px; color: #42624a; font-size: .9rem; font-weight: 700; }
+    .trust-row span::before { content: "✓"; color: var(--green); font-weight: 900; margin-right: 7px; }
+    section.content-section { padding: 82px 0; }
+    .section-heading { max-width: 730px; margin: 0 auto 38px; text-align: center; }
+    .kicker { color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 900; }
+    h2 { color: var(--forest); font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.2; letter-spacing: -.8px; margin: 9px 0 13px; }
+    .section-heading p { color: var(--muted); }
+    .intro-band { background: white; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+    .intro-mark { min-height: 270px; border-radius: 20px; background: linear-gradient(145deg, var(--forest), #3f8952); color: white; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow); }
+    .intro-mark .symbol { font-size: 3.2rem; color: #c6ebc9; line-height: 1; }
+    .intro-mark strong { display: block; font-size: 1.8rem; line-height: 1.2; max-width: 310px; }
+    .intro-mark small { color: #d4ead8; letter-spacing: 1px; }
+    .intro-text p { color: var(--muted); margin: 12px 0; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .pill { background: var(--mint); color: var(--forest); border-radius: 30px; padding: 7px 12px; font-size: .82rem; font-weight: 800; }
+    .farm-section { background: var(--cream); }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
+    .info-card { background: white; border: 1px solid var(--line); border-radius: 15px; padding: 25px; box-shadow: 0 5px 17px rgba(23,61,43,.04); transition: transform .2s, box-shadow .2s; }
+    .info-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .number { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--mint); color: var(--green); font-weight: 900; margin-bottom: 16px; }
+    .info-card h3 { color: var(--forest); margin-bottom: 8px; font-size: 1.12rem; }
+    .info-card p { color: var(--muted); font-size: .94rem; }
+    .care-section { background: white; }
+    .care-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: start; }
+    .care-note { background: var(--forest); color: white; border-radius: 18px; padding: 30px; }
+    .care-note h3 { font-size: 1.45rem; margin-bottom: 12px; }
+    .care-note p { color: #d7e8d9; }
+    .care-note .small-label { color: #b8e5be; text-transform: uppercase; letter-spacing: 1.5px; font-size: .76rem; font-weight: 800; }
+    .care-list { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .care-item { padding: 18px; border-left: 4px solid var(--leaf); background: #f5f9f4; border-radius: 0 12px 12px 0; }
+    .care-item h3 { color: var(--forest); font-size: 1rem; margin-bottom: 5px; }
+    .care-item p { color: var(--muted); font-size: .9rem; }
+    .activities { background: #eaf4e9; }
+    .activity-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .activity { text-align: center; background: rgba(255,255,255,.82); border: 1px solid #dcebdd; padding: 23px 15px; border-radius: 14px; }
+    .activity .activity-symbol { font-size: 1.7rem; color: var(--green); }
+    .activity h3 { color: var(--forest); font-size: 1rem; margin: 8px 0 5px; }
+    .activity p { color: var(--muted); font-size: .87rem; }
+    .about-section { background: var(--cream); }
+    .about-card { max-width: 850px; margin: auto; background: white; border: 1px solid var(--line); border-radius: 20px; padding: clamp(25px, 5vw, 48px); box-shadow: var(--shadow); }
+    .about-card p { color: var(--muted); margin: 13px 0; }
+    .quote { border-left: 4px solid var(--gold); background: #fbf6e9; color: #52604e; padding: 17px 20px; margin-top: 22px; border-radius: 0 10px 10px 0; font-weight: 700; }
+    .contact-section { background: var(--forest); color: white; }
+    .contact-section h2 { color: white; }
+    .contact-section .section-heading p { color: #d1e2d3; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: start; }
+    .contact-info { padding: 12px 0; }
+    .contact-info h3 { font-size: 1.35rem; margin-bottom: 12px; }
+    .contact-info p { color: #d4e4d6; margin: 13px 0; overflow-wrap: anywhere; }
+    .contact-info a { color: #c6edca; text-decoration: underline; text-underline-offset: 3px; }
+    form { background: white; color: var(--ink); border-radius: 17px; padding: 27px; }
+    .field { margin-bottom: 15px; }
+    label { display: block; font-weight: 800; font-size: .88rem; margin-bottom: 6px; }
+    input, textarea { width: 100%; border: 1px solid #dce5dc; border-radius: 9px; padding: 12px 13px; outline: none; background: #fbfcfa; }
+    input:focus, textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(40,115,66,.12); }
+    textarea { min-height: 115px; resize: vertical; }
+    form .btn { width: 100%; background: var(--green); color: white; }
+    form .btn:hover { background: var(--forest); }
+    #formStatus { min-height: 1.5em; margin-top: 10px; color: #287342; font-size: .88rem; }
+    footer { background: #102b1e; color: #c9ddcc; padding: 24px 0; text-align: center; font-size: .9rem; }
+    footer strong { color: white; letter-spacing: 2px; display: block; margin-top: 5px; }
+    .back-top { display: inline-block; color: #c6edca; margin-top: 7px; }
+    @media (max-width: 850px) {
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: .84rem; }
+      .nav-cta { display: none; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .activity-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .nav { min-height: 68px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 5%; background: var(--forest); flex-direction: column; align-items: flex-start; gap: 14px; border-top: 1px solid rgba(255,255,255,.12); }
+      .nav-links.open { display: flex; }
+      .hero { padding: 70px 0 65px; }
+      .intro-grid, .care-layout, .contact-grid { grid-template-columns: 1fr; gap: 25px; }
+      .card-grid, .care-list { grid-template-columns: 1fr; }
+      section.content-section { padding: 65px 0; }
+    }
+    @media (max-width: 420px) { .activity-strip { grid-template-columns: 1fr 1fr; } .brand { font-size: .93rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home">VIANNEY <span>RABBIT FARM</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#farm">Our Farm</a></li>
+        <li><a href="#care">Rabbit Care</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Make an enquiry ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">Growing with passion and care</span>
+        <h1>Vianney Rabbit Farm<br><span>Healthy Rabbits, Better Future.</span></h1>
+        <p>We are a rabbit farming venture in Uganda focused on responsible breeding, good animal care and promoting rabbit farming for meat, breeding and pet lovers.</p>
+        <div class="hero-actions">
+          <a class="btn green" href="#farm">Discover Our Farm →</a>
+          <a class="btn light" href="#contact">Contact Us</a>
+        </div>
+        <div class="trust-row"><span>Responsible breeding</span><span>Quality care</span><span>Community learning</span></div>
+      </div>
+    </section>
+
+    <section class="content-section intro-band" id="farm">
+      <div class="container intro-grid">
+        <div class="intro-mark">
+          <span class="symbol">✿</span>
+          <strong>Passion for rabbits. Commitment to responsible farming.</strong>
+          <small>VIANNEY RABBIT FARM · UGANDA</small>
+        </div>
+        <div class="intro-text">
+          <span class="kicker">Welcome to our farm</span>
+          <h2>Raising rabbits with care and purpose.</h2>
+          <p>Vianney Rabbit Farm is focused on quality, health and sustainability. Our goal is to provide healthy rabbits for meat production, breeding and people who love rabbits as pets.</p>
+          <p>We believe good rabbit farming starts with responsible breeding, suitable feeding, clean housing and regular attention to the animals.</p>
+          <div class="pill-row"><span class="pill">Rabbit breeding</span><span class="pill">Meat production</span><span class="pill">Breeding stock</span><span class="pill">Pet lovers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section farm-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">What we focus on</span>
+          <h2>Our Rabbit Farming Practices</h2>
+          <p>Good farming combines knowledge, patience and daily care. These are the main areas we focus on at Vianney Rabbit Farm.</p>
+        </div>
+        <div class="card-grid">
+          <article class="info-card"><div class="number">01</div><h3>Rabbit Breeding</h3><p>We focus on responsible breeding and selecting healthy rabbits for breeding purposes.</p></article>
+          <article class="info-card"><div class="number">02</div><h3>Proper Feeding</h3><p>Clean water and suitable, balanced feed are important for rabbit growth and good health.</p></article>
+          <article class="info-card"><div class="number">03</div><h3>Housing</h3><p>Rabbits need secure, clean, well-ventilated housing with enough space and protection from harsh weather.</p></article>
+          <article class="info-card"><div class="number">04</div><h3>Health and Hygiene</h3><p>Regular cleaning, observation and prompt attention to signs of illness help protect the rabbits.</p></article>
+          <article class="info-card"><div class="number">05</div><h3>Meat and Breeding Stock</h3><p>Rabbit farming can provide rabbits for meat production as well as suitable animals for breeding.</p></article>
+          <article class="info-card"><div class="number">06</div><h3>Farming Knowledge</h3><p>We encourage people interested in rabbit farming to learn good management practices and plan carefully.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section care-section" id="care">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Healthy rabbits, better future</span>
+          <h2>How We Care for Rabbits</h2>
+          <p>Consistent daily care helps rabbits stay healthy and comfortable. Their needs can vary with age, breed and condition.</p>
+        </div>
+        <div class="care-layout">
+          <aside class="care-note">
+            <span class="small-label">Our care promise</span>
+            <h3>Care is part of every day.</h3>
+            <p>We believe rabbits deserve clean surroundings, suitable food, safe housing and gentle handling. Observing them regularly helps us notice when something may be wrong.</p>
+          </aside>
+          <div class="care-list">
+            <article class="care-item"><h3>Clean Water</h3><p>Make fresh, clean drinking water available at all times. Check and clean water containers daily.</p></article>
+            <article class="care-item"><h3>Suitable Feed</h3><p>Provide suitable hay or grass and balanced rabbit feed. Introduce new foods gradually.</p></article>
+            <article class="care-item"><h3>Clean Housing</h3><p>Keep the rabbit house dry, clean and well ventilated. Remove waste regularly.</p></article>
+            <article class="care-item"><h3>Enough Space</h3><p>Provide secure housing with room to move, stretch and rest, protected from weather and predators.</p></article>
+            <article class="care-item"><h3>Health Observation</h3><p>Check appetite, behaviour, movement and droppings. Seek veterinary help if a rabbit appears unwell.</p></article>
+            <article class="care-item"><h3>Gentle Handling</h3><p>Approach calmly and support the rabbit's body properly. Never lift a rabbit by its ears.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section activities" id="activities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Life at the farm</span>
+          <h2>Our Everyday Activities</h2>
+          <p>Rabbit farming is built on patience, responsibility and daily attention.</p>
+        </div>
+        <div class="activity-strip">
+          <article class="activity"><div class="activity-symbol">♡</div><h3>Breeding</h3><p>Planning and responsible selection.</p></article>
+          <article class="activity"><div class="activity-symbol">❋</div><h3>Feeding</h3><p>Providing suitable feed and clean water.</p></article>
+          <article class="activity"><div class="activity-symbol">⌂</div><h3>Cleaning</h3><p>Maintaining safe, hygienic housing.</p></article>
+          <article class="activity"><div class="activity-symbol">✓</div><h3>Observation</h3><p>Checking rabbit health and behaviour.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section about-section" id="about">
+      <div class="container">
+        <div class="about-card">
+          <span class="kicker">The person behind the farm</span>
+          <h2>About John Vianney Katumba</h2>
+          <p>My name is <strong>John Vianney Katumba</strong>. Since my childhood, I have had a strong love for rabbits. That passion inspired me to establish Vianney Rabbit Farm.</p>
+          <p>To me, rabbit rearing is more than just a business. I also love keeping rabbits as pets, and I value the care, patience and responsibility involved in raising them.</p>
+          <div class="quote">My goal is to turn my love for rabbits into a meaningful farming venture while continuing to care for and learn about these wonderful animals.</div>
+          <p style="margin-top:22px; color:#287342; font-weight:900; letter-spacing:2px;">&lt;&lt;&lt; VIAN &gt;&gt;&gt;</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Get in touch</span>
+          <h2>Contact Vianney Rabbit Farm</h2>
+          <p>Have a question or an enquiry about rabbit farming? Reach out using the details below or prepare a message using the form.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>We would be happy to hear from you.</h3>
+            <p><strong>Email:</strong> <a href="mailto:johnvianneykatumba86@gmail.com">johnvianneykatumba86@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:0743408225">0743408225</a> / <a href="tel:0793049402">0793049402</a></p>
+            <p><strong>Address:</strong> Kalisizo, Kyotera District, Uganda</p>
+            <p><strong>Farm:</strong> Vianney Rabbit Farm</p>
+          </div>
+          <form id="contactForm">
+            <div class="field"><label for="visitorName">Your name</label><input id="visitorName" name="name" type="text" placeholder="Enter your name" required></div>
+            <div class="field"><label for="visitorEmail">Your email</label><input id="visitorEmail" name="email" type="email" placeholder="Enter your email" required></div>
+            <div class="field"><label for="visitorMessage">Your message</label><textarea id="visitorMessage" name="message" placeholder="Write your enquiry here..." required></textarea></div>
+            <button class="btn" type="submit">Prepare Message →</button>
+            <p id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Thank you for visiting Vianney Rabbit Farm.</p>
+      <strong>&lt;&lt;&lt; VIAN &gt;&gt;&gt;</strong>
+      <p>© <span id="year"></span> Vianney Rabbit Farm. All rights reserved.</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Open navigation');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('visitorName').value.trim();
+      const email = document.getElementById('visitorEmail').value.trim();
+      const message = document.getElementById('visitorMessage').value.trim();
+      const subject = encodeURIComponent('Enquiry for Vianney Rabbit Farm from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+      document.getElementById('formStatus').textContent = 'Your email app is opening with the message ready. Review it and press Send.';
+      window.location.href = 'mailto:johnvianneykatumba86@gmail.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
